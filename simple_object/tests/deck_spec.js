@@ -25,11 +25,16 @@ describe('Deck object tests', function() {
 
   // I expect that I can draw a card
   it('to be able to draw a card', function() {
+    deck.initializeDeck();
     expect(deck.drawCard()).to.be.ok;
   });
 
   // I expect to know have many cards have been dealt
   it('to know the amount of cards dealt', function() {
-    return false;
+    deck.initializeDeck();
+    for( var i = 0; i < 5; i++ ) {
+      deck.drawCard();
+    }
+    expect(deck.cardsDealt()).to.equal(5);
   });
 });

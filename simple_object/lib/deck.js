@@ -1,17 +1,22 @@
-var Card = require('./card');
+var Card = require('./card').Card;
 
-exports.Deck = function() {
+module.exports.Deck = function() {
   'use strict';
 
   var deck = [],
       suits = ['hearts', 'diamonds', 'spades', 'clubs'],
       ranks = [ 'A', '2', '3', '4', '5', '6', '7', '8', 
-                '9', '10', 'J', 'Q', 'K'];
+                '9', '10', 'J', 'Q', 'K'],
+      card;
 
   function Constructor(){}
 
   Constructor.prototype.countCards = function() {
     return deck.length;
+  };
+
+  Constructor.prototype.cardsDealt = function() {
+    return 52 - deck.length;
   };
 
   Constructor.prototype.initializeDeck = function() {
@@ -22,6 +27,10 @@ exports.Deck = function() {
       }
     }
     deck = set;
+  };
+
+  Constructor.prototype.drawCard = function() {
+    return deck.pop();
   };
 
   return new Constructor();

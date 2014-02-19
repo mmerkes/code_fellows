@@ -1,4 +1,4 @@
-exports.Player = function( name ) {
+module.exports.Player = function( name ) {
   'use strict';
 
   var hand = [];
