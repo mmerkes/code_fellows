@@ -5,17 +5,24 @@ module.exports.Player = function( name ) {
 
   function Constructor() {}
 
-  constructor.prototype.getName = function(){ 
+  Constructor.prototype.getName = function(){ 
     return name; 
   };
 
-  constructor.prototype.addCard = function( card ) {
+  Constructor.prototype.addCard = function( card ) {
     hand.push(card);
-    return true;
+    return hand;
   };
 
-  constructor.prototype.getHand = function() {
+  Constructor.prototype.getHand = function() {
     return hand;
+  };
+
+  // Accepts the index of the hand to play a card
+  Constructor.prototype.playCard = function( index ) {
+    var card = hand[index];
+    delete hand[index];
+    return card;
   };
 
   return new Constructor();

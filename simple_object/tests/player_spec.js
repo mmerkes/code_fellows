@@ -29,4 +29,11 @@ describe('Player object tests', function() {
     var hand = player.getHand();
     expect(hand[0].getSuit()).to.equal('hearts');
   });
+
+  // I expect that the player can play a card and it
+  // will be removed from his hand.
+  it('plays a card', function() {
+    player.addCard(card);
+    expect(player.playCard(0)).to.equal(card);
+  });
 });

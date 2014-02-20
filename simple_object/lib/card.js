@@ -3,10 +3,10 @@ module.exports.Card = function( suit, rank ) {
 
   function Constructor() {}
 
-  constructor.prototype.getSuit = function(){ 
+  Constructor.prototype.getSuit = function(){ 
     return suit; 
   };
-  constructor.prototype.getRank = function(){ 
+  Constructor.prototype.getRank = function(){ 
     return rank; 
   };
 

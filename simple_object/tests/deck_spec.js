@@ -37,4 +37,28 @@ describe('Deck object tests', function() {
     }
     expect(deck.cardsDealt()).to.equal(5);
   });
+
+  // Check that an unshuffled deck draws the king of clubs first
+  it('draws the kings of clubs if unshuffled', function() {
+    deck.initializeDeck();
+    var card = deck.drawCard();
+    expect(card.getSuit()).to.equal('clubs');
+    expect(card.getRank()).to.equal('K');
+  });
+
+  // I expect that the deck will be shuffled and will
+  // not draw the king of clubs first
+  it('shuffles the deck', function() {
+    deck.initializeDeck();
+    deck.shuffleDeck();
+    var card = deck.drawCard();
+    console.log(card.getRank());
+    if(card.getSuit() === 'clubs' && card.getRank() === 'K') {
+      card = deck.drawCard();
+      console.log(card.getRank() + card.getSuit());
+      expect(card.getSuit() === 'clubs'  && card.getRank() === 'Q' ).to.not.be.ok;
+    } else {
+      expect(card.getSuit() === 'clubs' && card.getRank() === 'K').to.not.be.ok;
+    }
+  });
 });
