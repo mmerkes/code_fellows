@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <style media="screen" type="text/css">
+      body {
+        color: white;
+      }
+
+      h1, p {
+        margin-left: 50px;
+      }
+
+      div {
+        width: 500px;
+        height: 200px;
+        margin: 100px;
+      }
+
+      div#capture {
+        background-color: purple;
+      }
+
+      div#bubble {
+        background-color: green;
+      }
+      button {
+        height: 100px;
+        width: 300px;
+        background-color: white;
+        margin-left: 100px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="capture">
+      <h1>Capture test</h3>
+      <button id="capture_button">Test it!</button>
+      <p>Events move from outside in</p>
+    </div>
+
+    <div id="bubble">
+      <h1>Bubble test</h3>
+      <button id="bubble_button">Test it!</button>
+      <p>Events move from inside out</p>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        var cap_div = document.getElementById('capture'),
+            cap_but = document.getElementById('capture_button'),
+            bub_div = document.getElementById('bubble'),
+            bub_but = document.getElementById('bubble_button');
+
+        cap_div.addEventListener('click', function() {
+          console.log('Capture div clicked.');
+        }, true);
+
+        cap_but.addEventListener('click', function() {
+          console.log('Capture button clicked.');
+        }, true);
+
+        bub_div.addEventListener('click', function() {
+          console.log('Bubble div clicked.');
+        });
+
+        bub_but.addEventListener('click', function() {
+          console.log('Bubble button clicked.');
+        });
+      });
+    </script>
+  </body>
+</html>
